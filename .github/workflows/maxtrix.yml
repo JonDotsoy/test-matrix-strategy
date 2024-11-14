@@ -20,6 +20,6 @@ jobs:
         needs: [gen]
         runs-on: ubuntu-latest
         strategy:
-            matrix: ${{ needs.gen.outputs }}
+            matrix: ${{ needs.gen.outputs.* }}
         steps:
             - run: echo ${{ matrix.vars }}
