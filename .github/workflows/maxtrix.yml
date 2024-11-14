@@ -15,12 +15,11 @@ jobs:
         steps:
             -   id: step
                 run: echo "output_var=${{ matrix.var }}" >> $GITHUB_OUTPUT
-    
+
     test:
         needs: [gen]
         runs-on: ubuntu-latest
         strategy:
-            matrix:
-                vars: ${{ toJson(needs.gen.outputs) }}
+            matrix: ${{ needs.gen.outputs }}
         steps:
             - run: echo ${{ matrix.vars }}
