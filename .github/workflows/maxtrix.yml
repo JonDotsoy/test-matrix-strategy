@@ -21,6 +21,6 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                vars: ${{ toJson(needs.gen.outputs.*) }}
+                vars: ${{ toJson(needs.gen.outputs) }}
         steps:
             - run: echo ${{ matrix.vars }}
