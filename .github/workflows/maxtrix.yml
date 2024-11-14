@@ -1,0 +1,27 @@
+name: matrix test
+
+on: push
+
+jobs:
+    gen:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                var:
+                    - a
+                    - b
+                    - c
+        outputs:
+            output_var: ${{ steps.step.outputs.output_var }}
+        steps:
+            -   id: step
+                run: echo "output_var=${{ matrix.var }}" >> $GITHUB_OUTPUT
+    
+    test:
+        needs: gen
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                vars: ${{ needs.gen.outputs.output_var }}
+        steps:
+            - run: echo ${{ matrix.vars }}
