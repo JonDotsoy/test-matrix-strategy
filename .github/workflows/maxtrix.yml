@@ -2,8 +2,17 @@ name: matrix test
 
 on: push
 
+env:
+    var: |
+        ${{ 
+            fromJson('{
+                "dev": "a",
+                "qa": "b",
+            }')[github.ref_name] || 'asd'
+        }}
+
 jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - run: echo ok
+            - run: echo ok $var
