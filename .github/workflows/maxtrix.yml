@@ -6,4 +6,5 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - run: echo ok ${{ vars.VAR }}
+            - run: |
+                echo VAR: ${{ vars.VAR }}
