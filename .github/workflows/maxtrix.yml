@@ -15,4 +15,4 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - run: echo ok $var
+            - run: echo ok ${{ env.var }}
