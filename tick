@@ -3,4 +3,4 @@
 date > date
 git add .
 git commit -n -m "tick"
-git push
+git push -f
