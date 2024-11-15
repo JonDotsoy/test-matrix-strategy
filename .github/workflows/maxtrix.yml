@@ -3,8 +3,9 @@ name: matrix test
 on: push
 
 jobs:
-    test:
+    asd:
         runs-on: ubuntu-latest
+        outputs:
+            asd: 'asd'
         steps:
-            - run: |
-                echo VAR: ${{ vars.VAR }} > $GITHUB_STEP_SUMMARY
+            - run: yq --version
