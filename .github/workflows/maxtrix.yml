@@ -7,4 +7,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: |
-                echo VAR: ${{ vars.VAR }}
+                echo VAR: ${{ vars.VAR }} > $GITHUB_STEP_SUMMARY
